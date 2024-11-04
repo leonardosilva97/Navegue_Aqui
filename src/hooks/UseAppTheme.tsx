@@ -1,7 +1,5 @@
-import {useTheme} from '@shopify/restyle';
-
-import {Theme} from '../theme/theme';
+import { useTheme } from 'native-base';
 
 export function UseAppTheme() {
-  return useTheme<Theme>();
+  return useTheme();
 }
