@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator, BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { View } from 'react-native';
 import { useTheme, Icon } from 'native-base';
 import { Home } from '~/screens/app/Home';
@@ -8,8 +8,16 @@ import { Payment } from '~/screens/app/Payment';
 import { Schedules } from '~/screens/app/Schedules';
 import { MaterialIcons } from '@expo/vector-icons';
 
-const { Navigator, Screen } = createBottomTabNavigator();
+type AppRoutes = {
+  Home: undefined;
+  Mapa: undefined;
+  Horarios: undefined;
+  Payment: undefined;
+};
 
+export type AppNavigatorRoutesProps = BottomTabNavigationProp<AppRoutes>;
+
+const { Navigator, Screen } = createBottomTabNavigator<AppRoutes>();
 export function AppRoutes() {
   const { sizes, colors } = useTheme();
 
@@ -66,15 +74,7 @@ export function AppRoutes() {
             ),
           }}
         />
-        <Screen
-          name="Comprar"
-          component={Payment}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <Icon as={MaterialIcons} name="paid" color={color} size={size} />
-            ),
-          }}
-        />
+        <Screen name="Payment" component={Payment} options={{ tabBarButton: () => null }} />
       </Navigator>
     </View>
   );

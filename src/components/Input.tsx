@@ -16,6 +16,7 @@ type Props = IInputProps & {
   errorMessage?: string | null;
   clear?: boolean;
   showPasswordToggle?: boolean;
+  search?: boolean;
 };
 
 export function Input({
@@ -24,6 +25,8 @@ export function Input({
   isInvalid,
   clear = false,
   showPasswordToggle = false,
+  search = false,
+
   ...rest
 }: Props) {
   const invalid = !!errorMessage || isInvalid;
@@ -61,6 +64,19 @@ export function Input({
               borderColor: 'blue.700',
             }}
             {...rest}
+            InputLeftElement={
+              search && (
+                <TouchableOpacity onPress={() => setShowPassword((prev) => !prev)}>
+                  <Icon
+                    as={MaterialIcons}
+                    name={'search'}
+                    size={sizes[2]}
+                    ml="2"
+                    color={colors.gray[300]}
+                  />
+                </TouchableOpacity>
+              )
+            }
             InputRightElement={
               showPasswordToggle && (
                 <TouchableOpacity onPress={() => setShowPassword((prev) => !prev)}>

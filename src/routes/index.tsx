@@ -10,7 +10,7 @@ export function Routes() {
     <Box flex={1}>
       <NavigationContainer>
         {/* {user.succeeded ? <AppRoutes /> : <AuthRoutes />} */}
-        <AuthRoutes />
+        <AppRoutes />
       </NavigationContainer>
     </Box>
   );

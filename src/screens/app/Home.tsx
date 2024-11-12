@@ -17,9 +17,12 @@ import { BoltNumber } from '~/components/BoltNumber';
 import { Button } from '~/components/Button';
 import { Destiny } from '~/components/Destiny';
 import { Screen } from '~/components/screen/screen';
+import { useNavigation } from '@react-navigation/native';
+import { AppNavigatorRoutesProps } from '~/routes/app.routes';
 
 export function Home() {
   const { colors } = useTheme();
+  const navigation = useNavigation<AppNavigatorRoutesProps>();
   const barcos = Array.from({ length: 8 }, (_, i) => ({
     bolt: 'Barco',
     number: `00${i + 1}`,
@@ -49,7 +52,7 @@ export function Home() {
           <Destiny />
         </Box>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          <HStack space={3} mt={6} justifyContent="space-between">
+          <HStack my={2} space={3} mt={6} justifyContent="space-between">
             <Box bg="white" borderRadius={10} w={'32'} shadow={4} p={2} alignItems="center">
               <Text color={'black'}>Partida</Text>
               <Select minWidth="100%" placeholder="Selecione..." borderColor={'white'}>
@@ -79,7 +82,7 @@ export function Home() {
         </Text>
 
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          <HStack space={3} mt={6} justifyContent="space-between">
+          <HStack my={2} space={3} mt={6} justifyContent="space-between">
             <Box bg="white" borderRadius={10} w={'32'} shadow={4} p={2} alignItems="center">
               <Text color={'black'}>Partida</Text>
               <Select minWidth="100%" placeholder="Selecione..." borderColor={'white'}>
@@ -105,7 +108,7 @@ export function Home() {
         </ScrollView>
 
         <Center mt={'16'}>
-          <Button title="Reservar" />
+          <Button title="Reservar" onPress={() => navigation.navigate('Payment')} />
         </Center>
       </Box>
     </Screen>
