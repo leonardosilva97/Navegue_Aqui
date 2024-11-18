@@ -7,12 +7,18 @@ import { Map } from '~/screens/app/Map';
 import { Payment } from '~/screens/app/Payment';
 import { Schedules } from '~/screens/app/Schedules';
 import { MaterialIcons } from '@expo/vector-icons';
+import { TicketScreen } from '~/screens/app/TicketScreen';
+import { CredCard } from '~/screens/app/CredCard';
+import { BoatSeatSelector } from '~/screens/app/BoatSeatSelector';
 
 type AppRoutes = {
   Home: undefined;
   Mapa: undefined;
   Horarios: undefined;
   Payment: undefined;
+  TicketScreen: undefined;
+  CredCard: undefined;
+  BoatSeatSelector: undefined;
 };
 
 export type AppNavigatorRoutesProps = BottomTabNavigationProp<AppRoutes>;
@@ -75,6 +81,17 @@ export function AppRoutes() {
           }}
         />
         <Screen name="Payment" component={Payment} options={{ tabBarButton: () => null }} />
+        <Screen
+          name="TicketScreen"
+          component={TicketScreen}
+          options={{ tabBarButton: () => null }}
+        />
+        <Screen name="CredCard" component={CredCard} options={{ tabBarButton: () => null }} />
+        <Screen
+          name="BoatSeatSelector"
+          component={BoatSeatSelector}
+          options={{ tabBarButton: () => null }}
+        />
       </Navigator>
     </View>
   );

@@ -33,7 +33,7 @@ export const THEME = extendTheme({
   fonts: {
     heading: 'VisbyCF-Bold',
     body: 'VisbyCF-Light',
-    medium: 'VisbyCF-Medium',
+    mono: 'VisbyCF-Medium',
   },
   fontSizes: {
     sxs: 6,

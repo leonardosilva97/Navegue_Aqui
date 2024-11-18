@@ -1,11 +1,13 @@
 import { useFonts } from '@expo-google-fonts/roboto';
 import { NativeBaseProvider } from 'native-base';
 import 'react-native-gesture-handler';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Loading } from '~/components/Loading';
 import { Routes } from '~/routes';
 import { Login } from '~/screens/auth/Login';
 import { Register } from '~/screens/auth/Register';
 import { THEME } from '~/theme/theme';
+import { AppProvider } from '~/context/AppContext';
 
 export default function App() {
   let [fontsLoad] = useFonts({
@@ -20,6 +22,12 @@ export default function App() {
     'VisbyCF-ThinOblique': require('@assets/fonts/VisbyCF-ThinOblique.ttf'),
   });
   return (
-    <NativeBaseProvider theme={THEME}>{fontsLoad ? <Routes /> : <Loading />}</NativeBaseProvider>
+    <NativeBaseProvider theme={THEME}>
+      <AppProvider>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          {fontsLoad ? <Routes /> : <Loading />}
+        </GestureHandlerRootView>
+      </AppProvider>
+    </NativeBaseProvider>
   );
 }

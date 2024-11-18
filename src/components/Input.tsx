@@ -17,6 +17,7 @@ type Props = IInputProps & {
   clear?: boolean;
   showPasswordToggle?: boolean;
   search?: boolean;
+  color?: string | null;
 };
 
 export function Input({
@@ -26,7 +27,7 @@ export function Input({
   clear = false,
   showPasswordToggle = false,
   search = false,
-
+  color,
   ...rest
 }: Props) {
   const invalid = !!errorMessage || isInvalid;
@@ -36,7 +37,7 @@ export function Input({
   return (
     <Box>
       {title && (
-        <Text fontWeight="bold" fontSize="sm" mx={3} mb={1}>
+        <Text color={color} fontSize="sm" mx={3} mb={1}>
           {title}
         </Text>
       )}
