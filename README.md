@@ -101,13 +101,3 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir [issues](https:/
    ```
 
 5. **Abra um Pull Request**
-
-## Licença
-
-Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
-
-## Contato
-
----
-
-*Este README foi gerado para fins de documentação do projeto NavegueAqui.*
